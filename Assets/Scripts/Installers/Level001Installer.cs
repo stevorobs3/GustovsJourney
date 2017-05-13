@@ -1,7 +1,8 @@
-﻿using OnsightGames.Gustov.GameObjects;
-using UnityEngine;
+﻿using OnsightGames.Gustov.Controllers;
+using OnsightGames.Gustov.GameObjects;
+using OnsightGames.Gustov.ViewControllers;
 
-namespace OnsightGames.Gustov.Installer
+namespace OnsightGames.Gustov.Installers
 {
     public class Level001Installer : BaseInstaller
     {
@@ -13,6 +14,9 @@ namespace OnsightGames.Gustov.Installer
             InstallGameObject<BackgroundTreesGameObject>("Prefabs/BackgroundTrees");
             InstallGameObject<GustovGameObject>("Prefabs/Gustov");
             InstallGameObject<GroundGameObject>("Prefabs/Ground");
+
+            CreateGameObject<GustovInput>();
+            BindAllAsSingle<GustovController>();
         }
     }
 }
