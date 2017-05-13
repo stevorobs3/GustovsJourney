@@ -1,5 +1,6 @@
 ﻿using OnsightGames.Gustov.GameObject;
 using Zenject;
+
 namespace OnsightGames.Gustov.Installer
 {
     public class Level001Installer : BaseInstaller
