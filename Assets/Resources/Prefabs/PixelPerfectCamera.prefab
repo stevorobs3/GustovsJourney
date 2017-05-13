@@ -64,7 +64,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.4375
+  orthographic size: 5.625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -111,7 +111,7 @@ MonoBehaviour:
   maxCameraHalfHeight: 20
   targetDimension: 1
   targetCameraHalfWidth: 2
-  targetCameraHalfHeight: 10
+  targetCameraHalfHeight: 5
   pixelPerfect: 1
   retroSnap: 0
   assetsPixelsPerUnit: 32
