@@ -19,8 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4487187303107594}
-  - component: {fileID: 114680201661455390}
   - component: {fileID: 65630484357406342}
+  - component: {fileID: 114626034756977826}
   m_Layer: 0
   m_Name: Platform
   m_TagString: Untagged
@@ -109,7 +109,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1032283151767040}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4157239887041934}
@@ -143,7 +143,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 0.9431751, z: 1}
   m_Center: {x: 0, y: -0.028412461, z: 0}
---- !u!114 &114680201661455390
+--- !u!114 &114626034756977826
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
