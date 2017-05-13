@@ -1,5 +1,5 @@
-﻿using OnsightGames.Gustov.GameObject;
-using Zenject;
+﻿using OnsightGames.Gustov.GameObjects;
+using UnityEngine;
 
 namespace OnsightGames.Gustov.Installer
 {
@@ -9,7 +9,10 @@ namespace OnsightGames.Gustov.Installer
         {
             InstallGameObject<PixelPerfectCamera>("Prefabs/PixelPerfectCamera");
             InstallGameObject<PlatformGameObject>("Prefabs/Platform");
+            InstallGameObject<BackgroundHillsGameObject>("Prefabs/BackgroundHills");
+            InstallGameObject<BackgroundTreesGameObject>("Prefabs/BackgroundTrees");
             InstallGameObject<GustovGameObject>("Prefabs/Gustov");
+            InstallGameObject<GroundGameObject>("Prefabs/Ground");
         }
     }
 }

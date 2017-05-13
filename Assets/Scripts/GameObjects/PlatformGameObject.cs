@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace OnsightGames.Gustov.GameObject
+namespace OnsightGames.Gustov.GameObjects
 {
     public class PlatformGameObject : MonoBehaviour
     {
