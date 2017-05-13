@@ -8,6 +8,7 @@ namespace OnsightGames.Gustov.Installer
         {
             InstallGameObject<PixelPerfectCamera>("Prefabs/PixelPerfectCamera");
             InstallGameObject<PlatformGameObject>("Prefabs/Platform");
+            InstallGameObject<GustovGameObject>("Prefabs/Gustov");
         }
     }
 }
