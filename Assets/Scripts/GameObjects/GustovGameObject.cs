@@ -11,9 +11,24 @@ namespace OnsightGames.Gustov.GameObjects
             _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
+        public void Update()
+        {
+            if (_maxVelocity != null)
+                NormaliseVelocity((Vector2)_maxVelocity);
+        }
+
+        public bool IsJumping
+        {
+            get
+            {
+                //TODO: this means that its true at top of jump!
+                return Mathf.Abs(_rigidBody.velocity.y) != 0f;
+            }
+        }
+
         public void ApplyForce(Vector2 force, Vector2 maxVelocity)
         {
-            Debug.Log("Apply force " + force);
+            _maxVelocity = maxVelocity;
             _rigidBody.AddForce(force);
             NormaliseVelocity(maxVelocity);
             PointSpriteInDirectionOfTravel();
@@ -23,7 +38,7 @@ namespace OnsightGames.Gustov.GameObjects
         {
             var newX = MinAbs(maxVelocity.x, _rigidBody.velocity.x);
             var newY = MinAbs(maxVelocity.y, _rigidBody.velocity.y);
-            _rigidBody.velocity = new Vector3(newX, newY);
+            _rigidBody.velocity = new Vector2(newX, newY);
         }
 
         private void PointSpriteInDirectionOfTravel()
@@ -45,5 +60,8 @@ namespace OnsightGames.Gustov.GameObjects
         private Rigidbody2D _rigidBody;
         private SpriteRenderer _spriteRenderer;
         private PolygonCollider2D _collider;
+
+        // Current max velocity (different if running / walking)
+        private Vector2? _maxVelocity;
     }
 }

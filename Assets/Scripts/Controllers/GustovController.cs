@@ -18,8 +18,23 @@ namespace OnsightGames.Gustov.Controllers
             _gustov.ApplyForce(force, _maxVelocity);
         }
 
+        public void Jump()
+        {
+            if (!_gustov.IsJumping)
+            {
+                _gustov.ApplyForce(_jumpForce * Vector2.up, _maxVelocity);
+            }
+        }
+
         private GustovGameObject _gustov;
+
+        // walking Configuration
         private float _force = 1000f;
-        private Vector2 _maxVelocity = new Vector2(5f, 5f);
+        private Vector2 _maxVelocity = new Vector2(5f, 10f);
+
+        // jumping configuration
+        private float _jumpForce = 400f;
+        private bool isJumping = false;
+
     }
 }
