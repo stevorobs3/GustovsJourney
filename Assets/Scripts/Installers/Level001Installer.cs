@@ -1,12 +1,13 @@
-﻿using Zenject;
-
-public class Level001Installer : MonoInstaller {
-
-    public override void InstallBindings()
+﻿using OnsightGames.Gustov.GameObject;
+using Zenject;
+namespace OnsightGames.Gustov.Installer
+{
+    public class Level001Installer : BaseInstaller
     {
-        Container.Bind<PixelPerfectCamera>()
-            .FromComponentInNewPrefabResource("Prefabs/PixelPerfectCamera")
-            .AsSingle()
-            .NonLazy();
+        public override void InstallBindings()
+        {
+            InstallGameObject<PixelPerfectCamera>("Prefabs/PixelPerfectCamera");
+            InstallGameObject<PlatformGameObject>("Prefabs/Platform");
+        }
     }
 }
