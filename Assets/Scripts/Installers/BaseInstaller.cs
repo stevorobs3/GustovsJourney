@@ -8,6 +8,7 @@ namespace OnsightGames.Gustov.Installers
         protected void InstallGameObject<Behaviour>(string resourceName) where Behaviour : MonoBehaviour
         {
             Container.Bind<Behaviour>()
+                .To<Behaviour>()
                 .FromComponentInNewPrefabResource(resourceName)
                 .AsSingle()
                 .NonLazy();
@@ -16,6 +17,7 @@ namespace OnsightGames.Gustov.Installers
         protected void CreateGameObject<Behaviour>() where Behaviour : MonoBehaviour
         {
             Container.Bind<Behaviour>()
+                .To<Behaviour>()
                 .FromNewComponentOnNewGameObject()
                 .AsSingle()
                 .NonLazy();
