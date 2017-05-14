@@ -40,7 +40,7 @@ namespace OnsightGames.Gustov.Controllers
         private float _walkAcceleration = 30f;
 
         // jumping configuration
-        private float _jumpForce = 7.8f;
+        private float _jumpForce = 7.9f;
 
         private float _lastJumpTime;
         private float _timeBetweenJumps = 0.2f;

@@ -12,6 +12,16 @@ namespace OnsightGames.Gustov.GameObjects
             _grounded = GetComponent<Grounded>();
         }
 
+        public void Update()
+        {
+            if (_grounded.IsGrounded)
+            {
+                _rigidBody.velocity -= _rigidBody.velocity.normalized * _deceleration * Time.deltaTime;
+                if (_rigidBody.velocity.magnitude < 0.1f)
+                    _rigidBody.velocity = Vector2.zero;
+            }
+        }
+
         public Vector2 Velocity
         {
             get
@@ -56,6 +66,8 @@ namespace OnsightGames.Gustov.GameObjects
                 _spriteRenderer.transform.localScale = new Vector3(newX, original.y, original.z); 
             }            
         }
+
+        private float _deceleration = 10f;
 
         private Rigidbody2D _rigidBody;
         private SpriteRenderer _spriteRenderer;

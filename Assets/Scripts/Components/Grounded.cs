@@ -22,8 +22,7 @@ namespace OnsightGames.Gustov.Components
 
         public void OnCollisionStay2D(Collision2D col)
         {
-            if (Mathf.Abs(col.collider.bounds.max.y - _collider.bounds.min.y) < _tolerance)
-                _grounded = true;
+            _grounded = Mathf.Abs(col.collider.bounds.max.y - _collider.bounds.min.y) < _tolerance;
         }
 
         public bool IsGrounded
@@ -36,6 +35,6 @@ namespace OnsightGames.Gustov.Components
 
         private bool _grounded;
         private Collider2D _collider;
-        private float _tolerance = 0.1f;
+        private float _tolerance = 0.02f;
     }
 }
