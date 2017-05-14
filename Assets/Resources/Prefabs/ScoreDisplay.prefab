@@ -21,25 +21,14 @@ GameObject:
   - component: {fileID: 224846603149981102}
   - component: {fileID: 222291930371561814}
   - component: {fileID: 114469459651216496}
-  - component: {fileID: 114468613413091570}
+  - component: {fileID: 114613922165010656}
   m_Layer: 5
-  m_Name: GustovStats
+  m_Name: ScoreDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &114468613413091570
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1975460835834210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cb3a6d97d3e71f4aa5b2eeff4aece4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114469459651216496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -72,7 +61,18 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: (0.0, 0.0)
+  m_Text: 0
+--- !u!114 &114613922165010656
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1975460835834210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 017f21e0339f2b64a9004359954386a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &222291930371561814
 CanvasRenderer:
   m_ObjectHideFlags: 1

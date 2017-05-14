@@ -24,8 +24,21 @@ namespace OnsightGames.Gustov.Installers
             CreateGameObject<EventSystem>();
             BindAllAsSingle<CanvasController>();
 
-            InstallGameObject<GustovStats>("Prefabs/GustovStats");
+            InstallTeabags();
+            InstallUI();
 
+        }
+
+        private void InstallTeabags()
+        {
+            InstallGameObject<TeabagGameObject>("Prefabs/Teabag");
+            BindAllAsSingle<TeabagController>();
+        }
+
+        private void InstallUI()
+        {
+            BindAllAsSingle<ScoreController>();
+            InstallGameObject<ScoreDisplay>("Prefabs/ScoreDisplay");
         }
     }
 }
