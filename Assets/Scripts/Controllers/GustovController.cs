@@ -9,6 +9,7 @@ namespace OnsightGames.Gustov.Controllers
         public GustovController(GustovGameObject gustov)
         {
             _gustov = gustov;
+            _lastJumpTime = _timeBetweenJumps;
         }
 
         public void Move(GustovDirection direction, float deltaTime)
@@ -20,10 +21,16 @@ namespace OnsightGames.Gustov.Controllers
 
         public void Jump()
         {
-            if (!_gustov.IsJumping)
+            if (!_gustov.IsJumping & TimeSinceLastJump() > _timeBetweenJumps)
             {
-                _gustov.AddVelocity(Vector2.up * _jumpSpeed);
+                _lastJumpTime = Time.time;
+                _gustov.AddForce(Vector2.up * _jumpForce);
             }
+        }
+
+        private float TimeSinceLastJump()
+        {
+            return Time.time - _lastJumpTime;
         }
 
         private GustovGameObject _gustov;
@@ -33,7 +40,10 @@ namespace OnsightGames.Gustov.Controllers
         private float _walkAcceleration = 30f;
 
         // jumping configuration
-        private float _jumpSpeed = 7.8f;
+        private float _jumpForce = 7.8f;
+
+        private float _lastJumpTime;
+        private float _timeBetweenJumps = 0.2f;
 
     }
 }

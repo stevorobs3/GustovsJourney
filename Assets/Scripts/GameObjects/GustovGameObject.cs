@@ -9,18 +9,18 @@ namespace OnsightGames.Gustov.GameObjects
         {
             _rigidBody = GetComponent<Rigidbody2D>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
+            _grounded = GetComponent<Grounded>();
         }
 
         public bool IsJumping
         {
             get
             {
-                //TODO: this means that its true at top of jump!
-                return Mathf.Abs(_rigidBody.velocity.y) != 0f;
+                return !_grounded.IsGrounded;
             }
         }
 
-        public void AddVelocity(Vector2 velocityDelta)
+        public void AddForce(Vector2 velocityDelta)
         {
             _rigidBody.velocity += velocityDelta;
             PointSpriteInDirectionOfTravel();
@@ -51,5 +51,6 @@ namespace OnsightGames.Gustov.GameObjects
 
         private Rigidbody2D _rigidBody;
         private SpriteRenderer _spriteRenderer;
+        private Grounded _grounded;
     }
 }

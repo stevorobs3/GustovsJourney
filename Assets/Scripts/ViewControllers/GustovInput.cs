@@ -23,7 +23,7 @@ namespace OnsightGames.Gustov.ViewControllers
             {
                 _gustovController.Move(GustovDirection.Right, Time.deltaTime);
             }
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space))
             {
                 _gustovController.Jump();
             }
