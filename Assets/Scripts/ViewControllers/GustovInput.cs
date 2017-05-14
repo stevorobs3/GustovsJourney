@@ -15,13 +15,15 @@ namespace OnsightGames.Gustov.ViewControllers
 
         void FixedUpdate()
         {
+
+            bool isRunning = Input.GetKey(KeyCode.LeftShift);
             if (Input.GetKey(KeyCode.LeftArrow))
             {
-                _gustovController.Move(GustovDirection.Left, Time.deltaTime);
+                _gustovController.Move(GustovDirection.Left, Time.deltaTime, isRunning);
             }
             if (Input.GetKey(KeyCode.RightArrow))
             {
-                _gustovController.Move(GustovDirection.Right, Time.deltaTime);
+                _gustovController.Move(GustovDirection.Right, Time.deltaTime, isRunning);
             }
             if (Input.GetKey(KeyCode.Space))
             {
