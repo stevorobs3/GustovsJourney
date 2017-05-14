@@ -1,6 +1,8 @@
 ﻿using OnsightGames.Gustov.Controllers;
 using OnsightGames.Gustov.GameObjects;
 using OnsightGames.Gustov.ViewControllers;
+using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace OnsightGames.Gustov.Installers
 {
@@ -17,6 +19,13 @@ namespace OnsightGames.Gustov.Installers
 
             CreateGameObject<GustovInput>();
             BindAllAsSingle<GustovController>();
+
+            CreateGameObject<Canvas>();
+            CreateGameObject<EventSystem>();
+            BindAllAsSingle<CanvasController>();
+
+            InstallGameObject<GustovStats>("Prefabs/GustovStats");
+
         }
     }
 }

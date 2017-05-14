@@ -12,6 +12,14 @@ namespace OnsightGames.Gustov.GameObjects
             _grounded = GetComponent<Grounded>();
         }
 
+        public Vector2 Velocity
+        {
+            get
+            {
+                return _rigidBody.velocity;
+            }
+        }
+
         public bool IsJumping
         {
             get

@@ -14,10 +14,10 @@ namespace OnsightGames.Gustov.Installers
                 .NonLazy();
         }
 
-        protected void CreateGameObject<Behaviour>() where Behaviour : MonoBehaviour
+        protected void CreateGameObject<Component>() where Component : Behaviour
         {
-            Container.Bind<Behaviour>()
-                .To<Behaviour>()
+            Container.Bind<Component>()
+                .To<Component>()
                 .FromNewComponentOnNewGameObject()
                 .AsSingle()
                 .NonLazy();
