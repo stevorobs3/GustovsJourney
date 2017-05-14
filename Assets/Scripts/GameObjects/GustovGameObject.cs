@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using OnsightGames.Gustov.Components;
+using UnityEngine;
 
 namespace OnsightGames.Gustov.GameObjects
 {
@@ -7,14 +8,7 @@ namespace OnsightGames.Gustov.GameObjects
         public void Awake()
         {
             _rigidBody = GetComponent<Rigidbody2D>();
-            _collider = GetComponent<PolygonCollider2D>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
-        }
-
-        public void Update()
-        {
-            if (_maxVelocity != null)
-                NormaliseVelocity((Vector2)_maxVelocity);
         }
 
         public bool IsJumping
@@ -26,20 +20,24 @@ namespace OnsightGames.Gustov.GameObjects
             }
         }
 
-        public void ApplyForce(Vector2 force, Vector2 maxVelocity)
+        public void AddVelocity(Vector2 velocityDelta)
         {
-            _maxVelocity = maxVelocity;
-            _rigidBody.AddForce(force);
-            NormaliseVelocity(maxVelocity);
+            _rigidBody.velocity += velocityDelta;
             PointSpriteInDirectionOfTravel();
         }
 
-        private void NormaliseVelocity(Vector2 maxVelocity)
+        public void AddVelocity(Vector2 velocityDelta, float maxHorizontalSpeed)
         {
-            var newX = MinAbs(maxVelocity.x, _rigidBody.velocity.x);
-            var newY = MinAbs(maxVelocity.y, _rigidBody.velocity.y);
-            _rigidBody.velocity = new Vector2(newX, newY);
+            _rigidBody.velocity += velocityDelta;
+            _rigidBody.velocity = new Vector2(MinAbs(maxHorizontalSpeed, _rigidBody.velocity.x), _rigidBody.velocity.y);
+            PointSpriteInDirectionOfTravel();
         }
+
+        private static float MinAbs(float max, float original)
+        {
+            return Mathf.Min(Mathf.Abs(original), Mathf.Abs(max)) * Mathf.Sign(original); ;
+        }
+
 
         private void PointSpriteInDirectionOfTravel()
         {
@@ -48,20 +46,10 @@ namespace OnsightGames.Gustov.GameObjects
                 var original = _spriteRenderer.transform.localScale;
                 var newX = _rigidBody.velocity.x > 0f ? -1f : 1f;
                 _spriteRenderer.transform.localScale = new Vector3(newX, original.y, original.z); 
-            }
-            
-        }
-
-        private static float MinAbs(float max, float original)
-        {
-            return Mathf.Min(Mathf.Abs(original), Mathf.Abs(max)) * Mathf.Sign(original);
+            }            
         }
 
         private Rigidbody2D _rigidBody;
         private SpriteRenderer _spriteRenderer;
-        private PolygonCollider2D _collider;
-
-        // Current max velocity (different if running / walking)
-        private Vector2? _maxVelocity;
     }
 }

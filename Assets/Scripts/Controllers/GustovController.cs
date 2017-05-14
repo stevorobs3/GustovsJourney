@@ -13,28 +13,27 @@ namespace OnsightGames.Gustov.Controllers
 
         public void Move(GustovDirection direction, float deltaTime)
         {
-            var forceDirection = direction == GustovDirection.Left ? Vector2.left : Vector2.right;
-            var force = forceDirection * _force * deltaTime;
-            _gustov.ApplyForce(force, _maxVelocity);
+            var moveDirection = direction == GustovDirection.Left ? Vector2.left : Vector2.right;
+            var velocityDelta = moveDirection * _walkAcceleration * deltaTime;
+            _gustov.AddVelocity(velocityDelta, _walkSpeed);
         }
 
         public void Jump()
         {
             if (!_gustov.IsJumping)
             {
-                _gustov.ApplyForce(_jumpForce * Vector2.up, _maxVelocity);
+                _gustov.AddVelocity(Vector2.up * _jumpSpeed);
             }
         }
 
         private GustovGameObject _gustov;
 
         // walking Configuration
-        private float _force = 1000f;
-        private Vector2 _maxVelocity = new Vector2(5f, 10f);
+        private float _walkSpeed = 5f;
+        private float _walkAcceleration = 30f;
 
         // jumping configuration
-        private float _jumpForce = 400f;
-        private bool isJumping = false;
+        private float _jumpSpeed = 7.8f;
 
     }
 }

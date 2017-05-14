@@ -71,7 +71,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 1438283863329694}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 83a4bd03fe6648f489f4c5cb0c0fe680, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -87,13 +87,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.65123034, y: -0.49037528}
+    - - {x: -0.65841925, y: -0.36816406}
+      - {x: -0.5464153, y: -0.4921112}
       - {x: 0.2994988, y: -0.47557902}
       - {x: 0.55297804, y: -0.19074321}
       - {x: 0.6521113, y: -0.05921316}
       - {x: 0.66118336, y: 0.19878459}
       - {x: -0.032086134, y: 0.484375}
-      - {x: -0.66866636, y: -0.08556676}
+      - {x: -0.6534736, y: -0.10379815}
 --- !u!114 &114275764003777400
 MonoBehaviour:
   m_ObjectHideFlags: 1

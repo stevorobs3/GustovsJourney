@@ -13,7 +13,7 @@ namespace OnsightGames.Gustov.ViewControllers
             _gustovController = gustovController;
         }
 
-        void Update()
+        void FixedUpdate()
         {
             if (Input.GetKey(KeyCode.LeftArrow))
             {
