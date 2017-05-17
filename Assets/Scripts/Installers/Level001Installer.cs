@@ -26,7 +26,14 @@ namespace OnsightGames.Gustov.Installers
 
             InstallTeabags();
             InstallUI();
+            InstallIsavelle();
 
+        }
+
+        private void InstallIsavelle()
+        {
+            InstallGameObject<IsabelleGameObject>("Prefabs/Isabelle");
+            BindAllAsSingle<IsabelleController>();
         }
 
         private void InstallTeabags()
