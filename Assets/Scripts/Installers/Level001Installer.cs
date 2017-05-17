@@ -1,5 +1,6 @@
 ﻿using OnsightGames.Gustov.Controllers;
 using OnsightGames.Gustov.GameObjects;
+using OnsightGames.Gustov.Services;
 using OnsightGames.Gustov.ViewControllers;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -27,7 +28,20 @@ namespace OnsightGames.Gustov.Installers
             InstallTeabags();
             InstallUI();
             InstallIsavelle();
+            InstallLevelTimer();
+            InstallLevelController();
 
+        }
+
+        private void InstallLevelController()
+        {
+            BindAllAsSingle<LevelController>();
+        }
+
+        private void InstallLevelTimer()
+        {
+            InstallGameObject<LevelTimerGameObject>("Prefabs/LevelTimer");
+            BindAllAsSingle<LevelTimerController>();
         }
 
         private void InstallIsavelle()
