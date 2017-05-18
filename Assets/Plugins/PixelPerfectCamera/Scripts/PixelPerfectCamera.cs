@@ -18,6 +18,13 @@ using UnityEditor;
 [RequireComponent(typeof(Camera))]
 public class PixelPerfectCamera : MonoBehaviour {
 
+    public void Awake()
+    {
+        Camera = GetComponent<Camera>();
+    }
+
+    public Camera Camera;
+
     public static int PIXELS_PER_UNIT = 100;
 
     public enum Dimension {Width, Height};

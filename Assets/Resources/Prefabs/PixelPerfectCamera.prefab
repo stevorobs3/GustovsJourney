@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 820dff5ef6cfac54cafac9e301a77a6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Camera: {fileID: 0}
   maxCameraHalfWidthEnabled: 1
   maxCameraHalfHeightEnabled: 1
   maxCameraHalfWidth: 20
