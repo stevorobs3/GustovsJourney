@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace OnsightGames.Gustov.GameObjects
+namespace OnsightGames.Gustav.GameObjects
 {
     public class LevelTimerGameObject : CanvasGameObject
     {

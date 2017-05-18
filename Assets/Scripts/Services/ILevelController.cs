@@ -1,5 +1,5 @@
 ﻿
-namespace OnsightGames.Gustov.Services
+namespace OnsightGames.Gustav.Services
 {
     public interface ILevelController
     {

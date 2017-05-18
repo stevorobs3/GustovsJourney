@@ -1,11 +1,11 @@
-﻿using OnsightGames.Gustov.Controllers;
-using OnsightGames.Gustov.GameObjects;
-using OnsightGames.Gustov.Services;
-using OnsightGames.Gustov.ViewControllers;
+﻿using OnsightGames.Gustav.Controllers;
+using OnsightGames.Gustav.GameObjects;
+using OnsightGames.Gustav.Services;
+using OnsightGames.Gustav.ViewControllers;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace OnsightGames.Gustov.Installers
+namespace OnsightGames.Gustav.Installers
 {
     public class Level001Installer : BaseInstaller
     {
@@ -15,11 +15,11 @@ namespace OnsightGames.Gustov.Installers
             InstallGameObject<PlatformGameObject>("Prefabs/Platform");
             InstallGameObject<BackgroundHillsGameObject>("Prefabs/BackgroundHills");
             InstallGameObject<BackgroundTreesGameObject>("Prefabs/BackgroundTrees");
-            InstallGameObject<GustovGameObject>("Prefabs/Gustov");
+            InstallGameObject<GustavGameObject>("Prefabs/Gustav");
             InstallGameObject<GroundGameObject>("Prefabs/Ground");
 
-            CreateGameObject<GustovInput>();
-            BindAllAsSingle<GustovController>();
+            CreateGameObject<GustavInput>();
+            BindAllAsSingle<GustavController>();
 
             CreateGameObject<Canvas>();
             CreateGameObject<EventSystem>();

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace OnsightGames.Gustov.Controllers
+namespace OnsightGames.Gustav.Controllers
 {
     public interface ICanvasController
     {

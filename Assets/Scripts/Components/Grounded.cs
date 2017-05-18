@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace OnsightGames.Gustov.Components
+namespace OnsightGames.Gustav.Components
 {
     public class Grounded : MonoBehaviour
     {

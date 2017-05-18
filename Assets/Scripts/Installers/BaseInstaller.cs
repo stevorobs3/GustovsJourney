@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Zenject;
 
-namespace OnsightGames.Gustov.Installers
+namespace OnsightGames.Gustav.Installers
 {
     public abstract class BaseInstaller : MonoInstaller
     {

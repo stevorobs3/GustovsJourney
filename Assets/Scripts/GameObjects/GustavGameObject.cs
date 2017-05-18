@@ -1,9 +1,9 @@
-﻿using OnsightGames.Gustov.Components;
+﻿using OnsightGames.Gustav.Components;
 using UnityEngine;
 
-namespace OnsightGames.Gustov.GameObjects
+namespace OnsightGames.Gustav.GameObjects
 {
-    public class GustovGameObject : MonoBehaviour
+    public class GustavGameObject : MonoBehaviour
     {
         public void Awake()
         {

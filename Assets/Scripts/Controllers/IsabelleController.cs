@@ -1,6 +1,6 @@
-﻿using OnsightGames.Gustov.GameObjects;
+﻿using OnsightGames.Gustav.GameObjects;
 
-namespace OnsightGames.Gustov.Controllers
+namespace OnsightGames.Gustav.Controllers
 {
     public class IsabelleController : IIsabelleController
     {

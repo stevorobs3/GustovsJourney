@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace OnsightGames.Gustov.GameObjects
+namespace OnsightGames.Gustav.GameObjects
 {
     public class BackgroundTreesGameObject : MonoBehaviour
     {

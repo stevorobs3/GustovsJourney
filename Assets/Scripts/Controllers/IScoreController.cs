@@ -1,5 +1,5 @@
 ﻿
-namespace OnsightGames.Gustov.Controllers
+namespace OnsightGames.Gustav.Controllers
 {
     public interface IScoreController
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace OnsightGames.Gustov.GameObjects
+namespace OnsightGames.Gustav.GameObjects
 {
     public class IsabelleGameObject : MonoBehaviour
     {
@@ -9,7 +9,7 @@ namespace OnsightGames.Gustov.GameObjects
         public void OnTriggerEnter2D(Collider2D col)
         {
             Debug.Log("Isabelle triggered");
-            if (col.GetComponent<GustovGameObject>() != null)
+            if (col.GetComponent<GustavGameObject>() != null)
             {
                 if (Collected != null)
                     Collected();

@@ -1,8 +1,8 @@
-﻿using OnsightGames.Gustov.Controllers;
+﻿using OnsightGames.Gustav.Controllers;
 using UnityEngine;
 using Zenject;
 
-namespace OnsightGames.Gustov.GameObjects
+namespace OnsightGames.Gustav.GameObjects
 {
     public abstract class CanvasGameObject : MonoBehaviour
     {

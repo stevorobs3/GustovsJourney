@@ -1,7 +1,7 @@
-﻿using OnsightGames.Gustov.Controllers;
+﻿using OnsightGames.Gustav.Controllers;
 using Zenject;
 
-namespace OnsightGames.Gustov.Services
+namespace OnsightGames.Gustav.Services
 {
     public class LevelController : ILevelController
     {

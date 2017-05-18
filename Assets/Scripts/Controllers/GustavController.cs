@@ -1,32 +1,32 @@
-﻿using OnsightGames.Gustov.GameObjects;
+﻿using OnsightGames.Gustav.GameObjects;
 using UnityEngine;
-using OnsightGames.Gustov.Models;
+using OnsightGames.Gustav.Models;
 
-namespace OnsightGames.Gustov.Controllers
+namespace OnsightGames.Gustav.Controllers
 {
-    public class GustovController : IGustovController
+    public class GustavController : IGustavController
     {
-        public GustovController(GustovGameObject gustov)
+        public GustavController(GustavGameObject gustav)
         {
-            _gustov = gustov;
+            _gustav = gustav;
             _lastJumpTime = _timeBetweenJumps;
         }
 
-        public void Move(GustovDirection direction, float deltaTime, bool isRunning)
+        public void Move(GustavDirection direction, float deltaTime, bool isRunning)
         {
-            var moveDirection = direction == GustovDirection.Left ? Vector2.left : Vector2.right;
+            var moveDirection = direction == GustavDirection.Left ? Vector2.left : Vector2.right;
             var speed = isRunning ? _runSpeed : _walkSpeed;
             var acceleration = isRunning ? _runAcceleration : _walkAcceleration;
             var velocityDelta = moveDirection * acceleration * deltaTime;
-            _gustov.AddVelocity(velocityDelta, speed);
+            _gustav.AddVelocity(velocityDelta, speed);
         }
 
         public void Jump()
         {
-            if (!_gustov.IsJumping & TimeSinceLastJump() > _timeBetweenJumps)
+            if (!_gustav.IsJumping & TimeSinceLastJump() > _timeBetweenJumps)
             {
                 _lastJumpTime = Time.time;
-                _gustov.AddForce(Vector2.up * _jumpForce);
+                _gustav.AddForce(Vector2.up * _jumpForce);
             }
         }
 
@@ -35,7 +35,7 @@ namespace OnsightGames.Gustov.Controllers
             return Time.time - _lastJumpTime;
         }
 
-        private GustovGameObject _gustov;
+        private GustavGameObject _gustav;
 
         // walking Configuration
         private float _walkSpeed = 5f;

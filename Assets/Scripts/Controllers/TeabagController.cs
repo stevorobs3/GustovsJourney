@@ -1,7 +1,7 @@
-﻿using OnsightGames.Gustov.GameObjects;
+﻿using OnsightGames.Gustav.GameObjects;
 using System.Collections.Generic;
 
-namespace OnsightGames.Gustov.Controllers
+namespace OnsightGames.Gustav.Controllers
 {
     public class TeabagController : ITeabagController
     {

@@ -1,9 +1,9 @@
 ﻿using System;
-using OnsightGames.Gustov.GameObjects;
+using OnsightGames.Gustav.GameObjects;
 using Zenject;
 using UnityEngine;
 
-namespace OnsightGames.Gustov.Controllers
+namespace OnsightGames.Gustav.Controllers
 {
     public class LevelTimerController : ILevelTimerController, ITickable
     {
