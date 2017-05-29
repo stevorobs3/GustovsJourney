@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4798292706040128}
   - component: {fileID: 212342227090966776}
   - component: {fileID: 60080407658559208}
-  - component: {fileID: 114343814801964230}
   m_Layer: 0
   m_Name: Teabag
   m_TagString: Untagged
@@ -73,17 +72,6 @@ PolygonCollider2D:
       - {x: -0.17436002, y: -0.18228045}
       - {x: -0.023381043, y: -0.32781398}
       - {x: 0.042175647, y: -0.32178742}
---- !u!114 &114343814801964230
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1116941970259328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6775067e5e52874c8d852eef4827191, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &212342227090966776
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -25,7 +25,6 @@ namespace OnsightGames.Gustav.Installers
             CreateGameObject<EventSystem>();
             BindAllAsSingle<CanvasController>();
 
-            InstallTeabags();
             InstallUI();
             InstallIsavelle();
             InstallLevelTimer();
@@ -48,12 +47,6 @@ namespace OnsightGames.Gustav.Installers
         {
             InstallGameObject<IsabelleGameObject>("Prefabs/Isabelle");
             BindAllAsSingle<IsabelleController>();
-        }
-
-        private void InstallTeabags()
-        {
-            InstallGameObject<TeabagGameObject>("Prefabs/Teabag");
-            BindAllAsSingle<TeabagController>();
         }
 
         private void InstallUI()
