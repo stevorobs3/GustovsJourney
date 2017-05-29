@@ -30,6 +30,11 @@ namespace OnsightGames.Gustav.Controllers
             }
         }
 
+        public void PourTea()
+        {
+            _gustav.PourTea();
+        }
+
         private float TimeSinceLastJump()
         {
             return Time.time - _lastJumpTime;

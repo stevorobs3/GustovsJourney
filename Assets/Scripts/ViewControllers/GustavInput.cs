@@ -29,6 +29,11 @@ namespace OnsightGames.Gustav.ViewControllers
             {
                 _gustavController.Jump();
             }
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                _gustavController.PourTea();
+            }
+
         }
 
         private IGustavController _gustavController;
