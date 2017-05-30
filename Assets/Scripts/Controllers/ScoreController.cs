@@ -9,9 +9,9 @@ namespace OnsightGames.Gustav.Controllers
             _scoreDisplay = scoreDisplay;
         }
 
-        public void Score()
+        public void IncrementScore(int amount)
         {
-            _score += 1;
+            _score += amount;
             _scoreDisplay.Display(_score);
         }
         

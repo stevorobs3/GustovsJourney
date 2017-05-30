@@ -35,6 +35,11 @@ namespace OnsightGames.Gustav.Controllers
             _gustav.PourTea();
         }
 
+        public void Die()
+        {
+            Debug.Log("gustav died!");
+        }
+
         private float TimeSinceLastJump()
         {
             return Time.time - _lastJumpTime;
