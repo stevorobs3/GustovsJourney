@@ -27,8 +27,18 @@ namespace OnsightGames.Gustav.Installers
 
             InstallUI();
             InstallLevelController();
+            InstallTeacups();
         }
 
+
+        private void InstallTeacups()
+        {
+            BindAllAsSingle<TeacupsController>();
+            Container.BindMemoryPool<TeacupGameObject, TeacupGameObject.Pool>()
+            .WithInitialSize(5)
+            .FromComponentInNewPrefabResource("Prefabs/Teacup")
+            .UnderTransformGroup("Teacups");
+        }
         private void InstallLevelController()
         {
             BindAllAsSingle<LevelController>();
