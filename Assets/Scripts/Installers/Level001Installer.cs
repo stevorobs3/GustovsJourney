@@ -26,10 +26,8 @@ namespace OnsightGames.Gustav.Installers
             BindAllAsSingle<CanvasController>();
 
             InstallUI();
-            InstallIsavelle();
             InstallLevelTimer();
             InstallLevelController();
-
         }
 
         private void InstallLevelController()
@@ -41,12 +39,6 @@ namespace OnsightGames.Gustav.Installers
         {
             InstallGameObject<LevelTimerGameObject>("Prefabs/LevelTimer");
             BindAllAsSingle<LevelTimerController>();
-        }
-
-        private void InstallIsavelle()
-        {
-            InstallGameObject<IsabelleGameObject>("Prefabs/Isabelle");
-            BindAllAsSingle<IsabelleController>();
         }
 
         private void InstallUI()

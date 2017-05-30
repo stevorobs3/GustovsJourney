@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4415798135291194}
   - component: {fileID: 212168562716678608}
-  - component: {fileID: 114902820493121980}
   - component: {fileID: 61870858872400796}
   m_Layer: 0
   m_Name: Isabelle
@@ -67,17 +66,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3125, y: 0.96875}
   m_EdgeRadius: 0
---- !u!114 &114902820493121980
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1650891906594094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dd918d2fe138464b897e055ac879469, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &212168562716678608
 SpriteRenderer:
   m_ObjectHideFlags: 1
