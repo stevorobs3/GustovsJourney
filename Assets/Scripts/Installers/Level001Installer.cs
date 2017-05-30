@@ -26,19 +26,12 @@ namespace OnsightGames.Gustav.Installers
             BindAllAsSingle<CanvasController>();
 
             InstallUI();
-            InstallLevelTimer();
             InstallLevelController();
         }
 
         private void InstallLevelController()
         {
             BindAllAsSingle<LevelController>();
-        }
-
-        private void InstallLevelTimer()
-        {
-            InstallGameObject<LevelTimerGameObject>("Prefabs/LevelTimer");
-            BindAllAsSingle<LevelTimerController>();
         }
 
         private void InstallUI()
