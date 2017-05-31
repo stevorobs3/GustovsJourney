@@ -21,6 +21,7 @@ namespace OnsightGames.Gustav.GameObjects
         {
             Debug.Log("resetting!");
             transform.position = spawnPosition;
+            transform.rotation = Quaternion.identity;
 
             if (_cupHasBeenEmptied)
             {
