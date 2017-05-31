@@ -10,6 +10,7 @@ namespace OnsightGames.Gustav.GameObjects
             _rigidBody = GetComponent<Rigidbody2D>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _grounded = GetComponent<Grounded>();
+            _animator = GetComponent<Animator>();
         }
 
         public void Update()
@@ -32,6 +33,7 @@ namespace OnsightGames.Gustav.GameObjects
 
         public void AddForce(Vector2 velocityDelta)
         {
+            _animator.SetTrigger(FlyingTrigger);
             _rigidBody.velocity += velocityDelta;
             PointSpriteInDirectionOfTravel();
         }
@@ -61,8 +63,11 @@ namespace OnsightGames.Gustav.GameObjects
 
         private float _deceleration = 10f;
 
+        private const string FlyingTrigger = "Fly";
+
         private Rigidbody2D _rigidBody;
         private SpriteRenderer _spriteRenderer;
         private Grounded _grounded;
+        private Animator _animator;
     }
 }
