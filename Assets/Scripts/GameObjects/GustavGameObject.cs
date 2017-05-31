@@ -40,6 +40,8 @@ namespace OnsightGames.Gustav.GameObjects
 
         public void AddVelocity(Vector2 velocityDelta, float maxHorizontalSpeed)
         {
+            if (_grounded.IsGrounded)
+                _animator.SetTrigger(WalkingTrigger);
             _rigidBody.velocity += velocityDelta;
             _rigidBody.velocity = new Vector2(MinAbs(maxHorizontalSpeed, _rigidBody.velocity.x), _rigidBody.velocity.y);
             PointSpriteInDirectionOfTravel();
@@ -64,6 +66,7 @@ namespace OnsightGames.Gustav.GameObjects
         private float _deceleration = 10f;
 
         private const string FlyingTrigger = "Fly";
+        private const string WalkingTrigger = "Walk";        
 
         private Rigidbody2D _rigidBody;
         private SpriteRenderer _spriteRenderer;

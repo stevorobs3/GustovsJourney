@@ -34,7 +34,7 @@ namespace OnsightGames.Gustav.Controllers
 
         // walking Configuration
         private float _walkSpeed = 3f;
-        private float _walkAcceleration = 20f;
+        private float _walkAcceleration = 15f;
 
         // running Configuration
         private float _runSpeed = 10f;
