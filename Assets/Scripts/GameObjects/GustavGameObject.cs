@@ -30,14 +30,6 @@ namespace OnsightGames.Gustav.GameObjects
             }
         }
 
-        public bool IsJumping
-        {
-            get
-            {
-                return !_grounded.IsGrounded;
-            }
-        }
-
         public void AddForce(Vector2 velocityDelta)
         {
             _rigidBody.velocity += velocityDelta;

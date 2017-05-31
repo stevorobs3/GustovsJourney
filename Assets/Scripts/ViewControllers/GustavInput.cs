@@ -23,9 +23,9 @@ namespace OnsightGames.Gustav.ViewControllers
             {
                 _gustavController.Move(GustavDirection.Right, Time.deltaTime, isRunning:false);
             }
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.LeftControl))
             {
-                _gustavController.Jump();
+                _gustavController.Fly();
             }
         }
 

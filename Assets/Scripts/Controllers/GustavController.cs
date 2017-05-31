@@ -9,7 +9,6 @@ namespace OnsightGames.Gustav.Controllers
         public GustavController(GustavGameObject gustav)
         {
             _gustav = gustav;
-            _lastJumpTime = _timeBetweenJumps;
         }
 
         public void Move(GustavDirection direction, float deltaTime, bool isRunning)
@@ -21,13 +20,9 @@ namespace OnsightGames.Gustav.Controllers
             _gustav.AddVelocity(velocityDelta, speed);
         }
 
-        public void Jump()
+        public void Fly()
         {
-            if (!_gustav.IsJumping & TimeSinceLastJump() > _timeBetweenJumps)
-            {
-                _lastJumpTime = Time.time;
-                _gustav.AddForce(Vector2.up * _jumpForce);
-            }
+            _gustav.AddForce(Vector2.up * _flyForce);
         }
 
         public void Die()
@@ -35,26 +30,18 @@ namespace OnsightGames.Gustav.Controllers
             Debug.Log("gustav died!");
         }
 
-        private float TimeSinceLastJump()
-        {
-            return Time.time - _lastJumpTime;
-        }
-
         private GustavGameObject _gustav;
 
         // walking Configuration
-        private float _walkSpeed = 5f;
-        private float _walkAcceleration = 35f;
+        private float _walkSpeed = 3f;
+        private float _walkAcceleration = 20f;
 
         // running Configuration
         private float _runSpeed = 10f;
         private float _runAcceleration = 50f;
 
-        // jumping configuration
-        private float _jumpForce = 7.9f;
-
-        private float _lastJumpTime;
-        private float _timeBetweenJumps = 0.2f;
+        // flying configuration
+        private float _flyForce = 1.5f;
 
     }
 }
