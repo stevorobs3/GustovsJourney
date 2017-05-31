@@ -92,6 +92,7 @@ namespace OnsightGames.Gustav.GameObjects
         {
             _rigidbody.bodyType = RigidbodyType2D.Dynamic;
             _rigidbody.gravityScale = 1f;
+            _rigidbody.drag = 0.5f;
         }
 
         private bool _isEmpty = true;
