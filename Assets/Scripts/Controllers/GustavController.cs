@@ -30,11 +30,6 @@ namespace OnsightGames.Gustav.Controllers
             }
         }
 
-        public void PourTea()
-        {
-            _gustav.PourTea();
-        }
-
         public void Die()
         {
             Debug.Log("gustav died!");

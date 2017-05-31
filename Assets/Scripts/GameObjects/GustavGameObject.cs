@@ -10,7 +10,6 @@ namespace OnsightGames.Gustav.GameObjects
             _rigidBody = GetComponent<Rigidbody2D>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _grounded = GetComponent<Grounded>();
-            _teaPouring = GetComponentInChildren<ParticleSystem>();
         }
 
         public void Update()
@@ -52,11 +51,6 @@ namespace OnsightGames.Gustav.GameObjects
             PointSpriteInDirectionOfTravel();
         }
 
-        public void PourTea()
-        {
-            _teaPouring.Play();
-        }
-
         private static float MinAbs(float max, float original)
         {
             return Mathf.Min(Mathf.Abs(original), Mathf.Abs(max)) * Mathf.Sign(original); ;
@@ -78,6 +72,5 @@ namespace OnsightGames.Gustav.GameObjects
         private Rigidbody2D _rigidBody;
         private SpriteRenderer _spriteRenderer;
         private Grounded _grounded;
-        private ParticleSystem _teaPouring;
     }
 }

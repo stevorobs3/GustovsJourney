@@ -15,25 +15,18 @@ namespace OnsightGames.Gustav.ViewControllers
 
         void FixedUpdate()
         {
-
-            bool isRunning = Input.GetKey(KeyCode.LeftShift);
             if (Input.GetKey(KeyCode.LeftArrow))
             {
-                _gustavController.Move(GustavDirection.Left, Time.deltaTime, isRunning);
+                _gustavController.Move(GustavDirection.Left, Time.deltaTime, isRunning:false);
             }
             if (Input.GetKey(KeyCode.RightArrow))
             {
-                _gustavController.Move(GustavDirection.Right, Time.deltaTime, isRunning);
+                _gustavController.Move(GustavDirection.Right, Time.deltaTime, isRunning:false);
             }
             if (Input.GetKey(KeyCode.Space))
             {
                 _gustavController.Jump();
             }
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                _gustavController.PourTea();
-            }
-
         }
 
         private IGustavController _gustavController;

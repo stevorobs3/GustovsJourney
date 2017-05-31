@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using Zenject;
 
 namespace OnsightGames.Gustav.GameObjects
@@ -13,8 +14,9 @@ namespace OnsightGames.Gustav.GameObjects
 
         public void Awake()
         {
-            _animator = GetComponent<Animator>();
+            _animator  = GetComponent<Animator>();
             _rigidbody = GetComponent<Rigidbody2D>();
+            _teaSplash = GetComponentInChildren<ParticleSystem>();
         }
 
         public void Reset(Vector3 spawnPosition)
@@ -29,7 +31,7 @@ namespace OnsightGames.Gustav.GameObjects
                 _animator.ResetTrigger(EmptyCupTrigger);
             }
 
-            if (!_isEmpty) {
+            if (_cupFilled) {
                 Debug.Log("Setting empty trigger");
                 _animator.ResetTrigger(FillCupTrigger);
                 _animator.SetTrigger(EmptyCupTrigger);
@@ -38,6 +40,7 @@ namespace OnsightGames.Gustav.GameObjects
 
             
             _isEmpty = true;
+            _cupFilled = false;
             _rigidbody.bodyType = RigidbodyType2D.Kinematic;
         }
 
@@ -58,7 +61,9 @@ namespace OnsightGames.Gustav.GameObjects
                 if (_isEmpty && hitfillsCup)
                 {
                     _isEmpty = false;
-                    _animator.SetTrigger(FillCupTrigger);
+                    _teaSplash.Play();
+                    StartCoroutine(DelayFillCup(_teaSplash.main.duration));
+                    
                     if (CupFilled != null)
                         CupFilled(this);
                     DisableAI();
@@ -76,6 +81,13 @@ namespace OnsightGames.Gustav.GameObjects
             }
         }
 
+        private IEnumerator DelayFillCup(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            _animator.SetTrigger(FillCupTrigger);
+            _cupFilled = true;
+        }
+
         private void DisableAI()
         {
             _rigidbody.bodyType = RigidbodyType2D.Dynamic;
@@ -83,9 +95,11 @@ namespace OnsightGames.Gustav.GameObjects
         }
 
         private bool _isEmpty = true;
+        private bool _cupFilled = false;
         private bool _cupHasBeenEmptied = false;
         private Animator _animator;
         private Rigidbody2D _rigidbody;
+        private ParticleSystem _teaSplash;
 
         private const string EmptyCupTrigger = "EmptyCup";
         private const string FillCupTrigger = "FillCup";

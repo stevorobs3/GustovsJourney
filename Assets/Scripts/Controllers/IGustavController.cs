@@ -6,7 +6,6 @@ namespace OnsightGames.Gustav.Controllers
     {
         void Move(GustavDirection direction, float deltaTime, bool isRunning);
         void Jump();
-        void PourTea();
         void Die();
     }
 }
