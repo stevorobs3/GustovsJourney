@@ -12,11 +12,21 @@ namespace OnsightGames.Gustav.GameObjects
         public event HitGustavHandler CollidedWithGustav;
         public event HitGustavHandler CollectedByGustav;
 
+        public SpriteRenderer SpriteRenderer
+        {
+            get
+            {
+                return _spriteRenderer;
+            }
+        }
+
         public void Awake()
         {
-            _animator  = GetComponent<Animator>();
-            _rigidbody = GetComponent<Rigidbody2D>();
-            _teaSplash = GetComponentInChildren<ParticleSystem>();
+            _animator       = GetComponent<Animator>();
+            _rigidbody      = GetComponent<Rigidbody2D>();
+            _teaSplash      = GetComponentInChildren<ParticleSystem>();
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+            _collider       = GetComponent<Collider2D>();
         }
 
         public void Reset(Vector3 spawnPosition)
@@ -41,6 +51,8 @@ namespace OnsightGames.Gustav.GameObjects
             
             _isEmpty = true;
             _cupFilled = false;
+            _spriteRenderer.enabled = true;
+            _collider.enabled = true;
             _rigidbody.bodyType = RigidbodyType2D.Kinematic;
         }
 
@@ -70,6 +82,8 @@ namespace OnsightGames.Gustav.GameObjects
                 }
                 else if (_isEmpty)
                 {
+                    _spriteRenderer.enabled = false;
+                    _collider.enabled = false;
                     if (CollidedWithGustav != null)
                         CollidedWithGustav(this);
                 }
@@ -98,9 +112,12 @@ namespace OnsightGames.Gustav.GameObjects
         private bool _isEmpty = true;
         private bool _cupFilled = false;
         private bool _cupHasBeenEmptied = false;
+
         private Animator _animator;
         private Rigidbody2D _rigidbody;
         private ParticleSystem _teaSplash;
+        private SpriteRenderer _spriteRenderer;
+        private Collider2D _collider;
 
         private const string EmptyCupTrigger = "EmptyCup";
         private const string FillCupTrigger = "FillCup";

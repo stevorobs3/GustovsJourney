@@ -38,7 +38,13 @@ namespace OnsightGames.Gustav.Installers
             .WithInitialSize(5)
             .FromComponentInNewPrefabResource("Prefabs/Teacup")
             .UnderTransformGroup("Teacups");
+
+            Container.BindMemoryPool<TeacupPiecesGameObject, TeacupPiecesGameObject.Pool>()
+            .WithInitialSize(1)
+            .FromComponentInNewPrefabResource("Prefabs/TeacupPieces")
+            .UnderTransformGroup("TeacupsPieces");
         }
+
         private void InstallLevelController()
         {
             BindAllAsSingle<LevelController>();

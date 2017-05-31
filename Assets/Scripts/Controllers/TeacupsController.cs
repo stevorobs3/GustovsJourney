@@ -10,12 +10,14 @@ namespace OnsightGames.Gustav.Controllers
     {
         public TeacupsController(
             TeacupGameObject.Pool teacupPool,
+            TeacupPiecesGameObject.Pool teacupPiecesPool,
             IScoreController scoreController,
             IGustavController gustavController
         )
         {
-            _teacupPool = teacupPool;
-            _scoreController = scoreController;
+            _teacupPool       = teacupPool;
+            _teacupPiecesPool = teacupPiecesPool;
+            _scoreController  = scoreController;
             _gustavController = gustavController;
         }
 
@@ -56,7 +58,15 @@ namespace OnsightGames.Gustav.Controllers
         private void HandleCollidedWithGustav(TeacupGameObject teacup)
         {
             _gustavController.Die();
+            var pieces = _teacupPiecesPool.Spawn(teacup.transform);
+            pieces.Exploded += DespawnPieces;
             teacup.CollidedWithGustav -= HandleCollidedWithGustav;
+        }
+
+        private void DespawnPieces(TeacupPiecesGameObject pieces)
+        {
+            _teacupPiecesPool.Despawn(pieces);
+            pieces.Exploded -= DespawnPieces;
         }
 
         private void HandleCupFilled(TeacupGameObject teacup)
@@ -67,6 +77,7 @@ namespace OnsightGames.Gustav.Controllers
 
         private readonly List<TeacupGameObject> _teacups = new List<TeacupGameObject>();
         private readonly TeacupGameObject.Pool _teacupPool;
+        private readonly TeacupPiecesGameObject.Pool _teacupPiecesPool;
         private readonly IScoreController _scoreController;
         private readonly IGustavController _gustavController;
     }
