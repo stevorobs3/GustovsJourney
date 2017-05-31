@@ -27,10 +27,13 @@ namespace OnsightGames.Gustav.Controllers
 
         private IEnumerator SpawnTeacups()
         {
-            for (int i = 0; i < 5; i++)
+            while (true)
             {
-                SpawnTeacup(i);
-                yield return new WaitForSeconds(2f);
+                for (int i = 0; i < 5; i++)
+                {
+                    SpawnTeacup(i);
+                    yield return new WaitForSeconds(2f);
+                }
             }
         }
 
@@ -62,10 +65,9 @@ namespace OnsightGames.Gustav.Controllers
             teacup.CupFilled -= HandleCupFilled;
         }
 
-
         private readonly List<TeacupGameObject> _teacups = new List<TeacupGameObject>();
-        private TeacupGameObject.Pool _teacupPool;
-        private IScoreController _scoreController;
-        private IGustavController _gustavController;
+        private readonly TeacupGameObject.Pool _teacupPool;
+        private readonly IScoreController _scoreController;
+        private readonly IGustavController _gustavController;
     }
 }
