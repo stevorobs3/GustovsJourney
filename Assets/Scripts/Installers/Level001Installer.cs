@@ -17,6 +17,7 @@ namespace OnsightGames.Gustav.Installers
             InstallGameObject<BackgroundTreesGameObject>("Prefabs/BackgroundTrees");
             InstallGameObject<GustavGameObject>("Prefabs/Gustav");
             InstallGameObject<GroundGameObject>("Prefabs/Ground");
+            InstallGameObject<GustavLivesGameObject>("Prefabs/GustavLives");
 
             CreateGameObject<GustavInput>();
             BindAllAsSingle<GustavController>();
@@ -28,6 +29,8 @@ namespace OnsightGames.Gustav.Installers
             InstallUI();
             InstallLevelController();
             InstallTeacups();
+
+
         }
 
 

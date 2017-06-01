@@ -6,9 +6,14 @@ namespace OnsightGames.Gustav.Controllers
 {
     public class GustavController : IGustavController
     {
-        public GustavController(GustavGameObject gustav)
+        public GustavController(
+            GustavGameObject gustav,
+            GustavLivesGameObject gustavLives
+        )
         {
-            _gustav = gustav;
+            _gustav      = gustav;
+            _gustavLives = gustavLives;
+            UpdateLives(InitialLives);
         }
 
         public void Move(GustavDirection direction, float deltaTime, bool isRunning)
@@ -28,9 +33,34 @@ namespace OnsightGames.Gustav.Controllers
         public void Die()
         {
             Debug.Log("gustav died!");
+            UpdateLives(_lives - 1);
+            if (_lives > 0)
+                _gustav.Dead += RespawnGustav;
+            else
+                _gustav.Dead += EndGame;
+            _gustav.Die();
+        }
+
+        private void RespawnGustav()
+        {
+            _gustav.Dead -= RespawnGustav;
+            _gustav.Spawn(Vector3.zero);
+        }
+
+        private void EndGame()
+        {
+            _gustav.Dead -= EndGame;
+            Debug.Log("Game over!");
+        }
+
+        private void UpdateLives(int numLives)
+        {
+            _lives = numLives;
+            _gustavLives.Display(numLives);
         }
 
         private GustavGameObject _gustav;
+        private GustavLivesGameObject _gustavLives;
 
         // walking Configuration
         private float _walkSpeed = 3f;
@@ -42,6 +72,10 @@ namespace OnsightGames.Gustav.Controllers
 
         // flying configuration
         private float _flyForce = 1.5f;
+
+        // lives configuration
+        private const int InitialLives = 5;
+        private int _lives;
 
     }
 }

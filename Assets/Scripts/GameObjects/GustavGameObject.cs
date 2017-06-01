@@ -3,8 +3,12 @@ using UnityEngine;
 
 namespace OnsightGames.Gustav.GameObjects
 {
+    public delegate void DeadHandler();
+
     public class GustavGameObject : MonoBehaviour
     {
+        public event DeadHandler Dead;
+
         public void Awake()
         {
             _rigidBody = GetComponent<Rigidbody2D>();
@@ -47,6 +51,23 @@ namespace OnsightGames.Gustav.GameObjects
             PointSpriteInDirectionOfTravel();
         }
 
+        public void Die()
+        {
+            _animator.SetTrigger(DieingTrigger);
+        }
+
+        public void NotifyDead()
+        {
+            if (Dead != null)
+                Dead();
+        }
+
+        public void Spawn(Vector3 position)
+        {
+            transform.position = position;
+            _animator.SetTrigger(RespawnTrigger);
+        }
+
         private static float MinAbs(float max, float original)
         {
             return Mathf.Min(Mathf.Abs(original), Mathf.Abs(max)) * Mathf.Sign(original); ;
@@ -65,8 +86,10 @@ namespace OnsightGames.Gustav.GameObjects
 
         private float _deceleration = 10f;
 
-        private const string FlyingTrigger = "Fly";
-        private const string WalkingTrigger = "Walk";        
+        private const string FlyingTrigger  = "Fly";
+        private const string WalkingTrigger = "Walk";
+        private const string DieingTrigger  = "Die";
+        private const string RespawnTrigger = "Respawn";
 
         private Rigidbody2D _rigidBody;
         private SpriteRenderer _spriteRenderer;
