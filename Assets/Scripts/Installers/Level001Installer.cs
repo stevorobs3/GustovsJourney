@@ -18,6 +18,7 @@ namespace OnsightGames.Gustav.Installers
             InstallGameObject<GustavGameObject>("Prefabs/Gustav");
             InstallGameObject<GroundGameObject>("Prefabs/Ground");
             InstallGameObject<GustavLivesGameObject>("Prefabs/GustavLives");
+            InstallGameObject<GameOverTextGameObject>("Prefabs/GameOverText");
 
             CreateGameObject<GustavInput>();
             BindAllAsSingle<GustavController>();

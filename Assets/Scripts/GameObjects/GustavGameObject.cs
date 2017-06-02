@@ -85,6 +85,7 @@ namespace OnsightGames.Gustav.GameObjects
         }
 
         private float _deceleration = 10f;
+        private bool _isDieing = false;
 
         private const string FlyingTrigger  = "Fly";
         private const string WalkingTrigger = "Walk";

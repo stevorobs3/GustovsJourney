@@ -8,11 +8,14 @@ namespace OnsightGames.Gustav.Controllers
     {
         public GustavController(
             GustavGameObject gustav,
-            GustavLivesGameObject gustavLives
+            GustavLivesGameObject gustavLives,
+            GameOverTextGameObject gameOverText
         )
         {
             _gustav      = gustav;
             _gustavLives = gustavLives;
+            _gameOverText = gameOverText;
+
             UpdateLives(InitialLives);
         }
 
@@ -34,7 +37,7 @@ namespace OnsightGames.Gustav.Controllers
         {
             Debug.Log("gustav died!");
             UpdateLives(_lives - 1);
-            if (_lives > 0)
+            if (_lives >= 0)
                 _gustav.Dead += RespawnGustav;
             else
                 _gustav.Dead += EndGame;
@@ -44,23 +47,24 @@ namespace OnsightGames.Gustav.Controllers
         private void RespawnGustav()
         {
             _gustav.Dead -= RespawnGustav;
-            _gustav.Spawn(Vector3.zero);
+            _gustav.Spawn(new Vector3(-3,-3));
         }
 
         private void EndGame()
         {
             _gustav.Dead -= EndGame;
-            Debug.Log("Game over!");
+            _gameOverText.Show();
         }
 
         private void UpdateLives(int numLives)
         {
             _lives = numLives;
-            _gustavLives.Display(numLives);
+            _gustavLives.Display(numLives - 1);
         }
 
         private GustavGameObject _gustav;
         private GustavLivesGameObject _gustavLives;
+        private GameOverTextGameObject _gameOverText;
 
         // walking Configuration
         private float _walkSpeed = 3f;
